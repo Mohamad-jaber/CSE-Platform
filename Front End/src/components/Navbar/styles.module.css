@@ -1,0 +1,31 @@
+.navContainer > div {
+  justify-content: space-between;
+}
+
+.navList {
+  justify-content: end;
+  font-size: 1.3rem !important;
+}
+
+.navbarContent {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbarContent p {
+  color: white;
+  margin: 0;
+}
+
+.navbarContent a {
+  all: unset;
+  color: rgb(0, 0, 0);
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+.navbarContent a:hover {
+  text-shadow: 1px 1px 5px white;
+}

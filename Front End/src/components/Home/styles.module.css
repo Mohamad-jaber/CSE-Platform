@@ -1,0 +1,48 @@
+.mainH {
+  color: rgb(38, 142, 142);
+  font-size: 36px;
+  padding: 30px 100px;
+}
+
+
+
+.mainH_p{
+  color: rgb(38, 142, 142);
+  padding: 0px 100px;
+}
+
+.mainBtn {
+  font-size: 20px;
+}
+
+
+
+@media only screen and (min-width : 450px) {
+  .home_div{
+    width: 80%;
+    margin: auto;
+    margin-top: 200px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+
+  .home_div{
+    margin-top: 30px;
+    width: 100%;
+
+  }
+
+  .buttons{
+    margin: auto;
+  }
+}
+
+
+@media only screen and (min-width:450px )and( max-width: 855px) {
+
+  .buttons{
+    margin: auto;
+  }
+}
+

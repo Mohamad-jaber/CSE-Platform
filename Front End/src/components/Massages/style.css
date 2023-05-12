@@ -1,0 +1,39 @@
+.masage {
+  background-color: rgb(163, 237, 237);
+  /* background-color: transparent; */
+  /* border: 2px solid rgb(27, 118, 118); */
+  text-align: center;
+  width: 100%;
+  margin: 50px auto;
+  padding: 20px;
+  color: rgb(27, 118, 118);
+}
+.text-m {
+  color: rgb(27, 118, 118);
+}
+
+.messagesContainer {
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding-bottom: 50px;
+}
+
+.messageBox {
+  display: flex;
+  width: 35%;
+  min-height: 20vh;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 20px 50px;
+  border-radius: 20px;
+}
+
+.messageBox > p {
+  font-size: 17px;
+  font-weight: 500;
+}

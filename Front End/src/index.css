@@ -1,0 +1,67 @@
+body {
+  background-color: #f5f8fa;
+}
+
+.bg-custom {
+  background-color: #10bbb3 !important;
+}
+
+.nav-link {
+  color: #fff !important;
+}
+
+.btn-default-outline {
+  color: #0da39c !important;
+  background-color: transparent;
+  border-color: #10bbb3;
+  width: 200px;
+  border-radius: 50px;
+}
+
+.btn-default-outline:hover {
+  color: #fff !important;
+  background-color: #10bbb3;
+  box-shadow: none;
+}
+
+.forgot:hover {
+  color: #10bbb3 !important;
+}
+
+.login {
+  color: #0da39c;
+}
+
+.user-icon {
+  font-size: 60px;
+  color: #0da39c;
+  /* color: #c0c0c0; */
+}
+
+.avatar {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+}
+
+.share {
+  margin: 0px auto 10px auto;
+}
+
+.error-message {
+  text-transform: capitalize;
+}
+
+.button-onClick {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* .btn-container > * {
+  margin: 0 10px;
+} */

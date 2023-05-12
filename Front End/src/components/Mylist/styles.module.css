@@ -1,0 +1,16 @@
+.headerText {
+  color: rgb(38, 142, 142);
+  font-size: 36px;
+  text-align: center;
+}
+.listColor {
+  color: rgb(38, 142, 142);
+}
+.listColor1 {
+  color: rgb(33, 116, 116);
+}
+
+.userNotFound {
+  display: flex;
+  justify-content: center;
+}
