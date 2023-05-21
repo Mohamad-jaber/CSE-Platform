@@ -26,6 +26,18 @@ export default function Mylist({ showMessage = false }) {
     if (data.message === "success") {
       setcourses(data.data);
     }
+
+    if(loggedUser){
+      if(loggedUser.role==1){
+        let path = "/";
+        Navigate(path, { replace: true });
+        toast.error("you are not allow to accsess this page");
+      }
+    }else{
+      let path = "/";
+      Navigate(path, { replace: true });
+      toast.error("you are not allow to accsess this page");
+    }
   };
 
   let typeofcourse = ["اجباري تخصص", " اجباري جامعه", "اجباري كليه", "اختياري تخصص", "اختياري جامعه"];
@@ -129,9 +141,9 @@ export default function Mylist({ showMessage = false }) {
 
   return (
     <div className="container  my-5">
-      {showMessage && (
-        <h4 className={styles.headerText}>My course list </h4>
-      )}
+      
+        <h4 className={styles.headerText}>My List </h4>
+      
       <div className="d-flex justify-content-center row mt-3">
         <div class="row row-cols-1 row-cols-md-3 g-4">
 
@@ -151,13 +163,13 @@ export default function Mylist({ showMessage = false }) {
                             {typeofcourse[course.course_type]}
                           </span>
 
+                        </button>
                           <button className="bg-white border-0" type="submit" onClick={mylist.includes(course.course_id) ? (e) => removeMylist(e, course.course_id) : (e) => addMylist(e, course.course_id)}>
                             {mylist.includes(course.course_id) ?
                               <i class="fa-solid fa-heart fs-1 ms-2 "></i>
                               :
                               <i class="fa-regular fa-heart fs-1 ms-2"></i>}
                           </button>
-                        </button>
 
                       </div>
                     </div>

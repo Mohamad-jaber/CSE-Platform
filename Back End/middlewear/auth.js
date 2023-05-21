@@ -8,7 +8,7 @@ export const auth = () => {
     return async (req, res, next) => {
         try {
             const { authorization } = req.headers;
-                // console.log(req.headers);
+            // console.log(req.headers);
             if (!(authorization.startsWith(process.env.BearerToken))) {
                 res.json({ message: "invalid Bearer Token" });
             } else {
@@ -18,18 +18,22 @@ export const auth = () => {
                     res.json({ message: "invalid token payload" });
                 } else {
                     // const user = await userModel.findById(decoded.id).select('email uesrName');
+                    if (decoded.role == 0) {
 
-                    connectDB.execute(`SELECT * FROM users where User_ID = ${decoded.id}`, (error, data) => {
+                        // const user = await userModel.findById(decoded.id).select('email uesrName');
+                        connectDB.execute(`SELECT * FROM users where User_ID = ${decoded.id}`, (error, data) => {
 
-                        if (data.length == 0) {
-                            res.status(404).json({ message: "not register user" });
-                        } else {
-                            req.user = data[0];
-                            next()
-                        }
+                            if (data.length == 0) {
+                                res.status(404).json({ message: "not register user" });
+                            } else {
+                                req.user = data[0];
+                                next()
+                            }
 
-
-                    });
+                        });
+                    } else {
+                        res.json({ message: "you are not allow to accsess this page " })
+                    }
 
                 }
             }

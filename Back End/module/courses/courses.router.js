@@ -6,7 +6,7 @@ import * as validators from "../courses/course.validatores.js";
 import { auth } from "../../middlewear/auth.js";
 const router = Router();
 
-router.post("/addCourse",adminAuth(),validation(validators.addcourse), AddCourse);
+router.post("/addCourse",adminAuth(), AddCourse);
 router.get("/addToList/:id",auth(), addToList);
 router.delete("/removeFromList/:id",auth(), removeFromList);
 router.get("/mylist",auth(), ListCourses);

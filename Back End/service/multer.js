@@ -33,6 +33,7 @@ export const getPath = () => {
             if (error) {
                 res.json({ message: "sql remove", e: error })
             } else {
+
                 let uploadfile = [];
                 let sourcePath = full + '/genaral/';
                 let destinationPath;

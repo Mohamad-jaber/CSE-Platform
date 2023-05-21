@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { UserContext } from "../UserContext/UserProvider";
 import copy from "copy-to-clipboard";
 import { toast } from "react-toastify";
@@ -11,8 +11,9 @@ import styles from "./styles.module.css";
 const Submission = () => {
   let [courses, setcourses] = useState([]);
 
-
+  const Navigate = useNavigate();
   const [selectedFiles, setSelectedFiles] = useState([]);
+  const { loggedUser } = useContext(UserContext);
 
   const [selectedOne, setSelectedOne] = useState("none");
   const [selectedTwo, setSelectedTwo] = useState("none");
@@ -44,6 +45,19 @@ const Submission = () => {
     if (data.message === "success") {
       setcourses(data.data);
       // console.log(data.data);
+    }
+
+
+    if (loggedUser) {
+      if (loggedUser.role == 1) {
+        let path = "/";
+        Navigate(path, { replace: true });
+        toast.error("you are not allow to access this page");
+      }
+    } else {
+      let path = "/";
+      Navigate(path, { replace: true });
+      toast.error("you are not allow to access this page");
     }
   }
 
@@ -136,16 +150,23 @@ const Submission = () => {
           setSelectedOne('none');
           setSelectedThree('none');
           setSelectedTwo('none');
+          setLoading(false);
           toast.success('Submission Added  ')
+
 
         })
         .catch((error) => {
           console.log(error);
+          toast.success(error)
+
+          setLoading(false);
+
         });
     } else {
+
       toast.error('please add file')
     }
-    setLoading(false);
+    // setLoading(false);
 
   };
 
@@ -233,9 +254,19 @@ const Submission = () => {
                 {(selectedTwo === 'lecture' || selectedTwo === 'summary') && selectedOne !== 'none' && (
                   <div class="input-group mb-3">
 
-                    <span class="input-group-text" >Dr. Name</span>
+                    <span class="input-group-text" >Lecturer Name</span>
                     <input type="text" class="form-control " onChange={(event) => { setDrName(event.target.value); }} name="drName" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"></input>
 
+
+                    <span class="input-group-text" >Year</span>
+                    <select class="form-select me-3" name="examYear" onChange={(event) => { setYearExam(event.target.value); }}>
+                      <option selected value="none">Choose...</option>
+                      {yearOptions.map((y, index) => {
+                        return (
+                          y
+                        );
+                      })}
+                    </select>
 
                   </div>
                 )
@@ -252,7 +283,7 @@ const Submission = () => {
                 )
                 }
 
-                {(selectedThree !== 'none' || selectedTwo === 'summary' || selectedTwo === 'lecture') && selectedOne !== 'none' && (
+                {(selectedTwo === 'summary' || selectedTwo === 'lecture' || (selectedTwo === 'exam' && yearExam != '' && Semester != '')) && selectedOne !== 'none' && (
                   <div class="input-group mb-3">
                     <div class="input-group mb-3 ">
                       <input max="1000000000" type="file" name="file" accept=".pdf,.docx,video/*" multiple className="form-control mb-3" onChange={(event) => {

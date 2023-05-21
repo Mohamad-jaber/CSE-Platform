@@ -1,5 +1,7 @@
+import path, { dirname } from 'path';
 import connectDB from '../../../DB/connection.js';
 import fs from 'fs';
+import { fileURLToPath } from 'url';
 
 
 export const AddCourse = async (req, res) => {
@@ -10,17 +12,41 @@ export const AddCourse = async (req, res) => {
             if (data.length > 0) {
                 res.json({ message: "courses already exists" });
             } else {
-                connectDB.execute(`INSERT INTO course(course_name, course_description,course_type) VALUES ("${course_name}","${course_description}",${course_type})`, (error, data) => {
-                    if (!fs.existsSync(`C:/Users/Mohad/OneDrive/Documents/GG-Project/back-end/uploads/courses/${course_name}`)) {
-                        fs.mkdirSync(`C:/Users/Mohad/OneDrive/Documents/GG-Project/back-end/uploads/courses/${course_name}`, { recursive: true });
-                        const subFolders = ['exam', 'summary', 'lecture'];
-                        for (const subFolder of subFolders) {
-                            const subFolderPath = `C:/Users/Mohad/OneDrive/Documents/GG-Project/back-end/uploads/courses/${course_name}/${subFolder}`;
-                            fs.mkdirSync(subFolderPath);
+
+                const __dirname = dirname(fileURLToPath(import.meta.url));
+
+
+                let full = path.join(__dirname, `../../../uploads/courses`);
+
+                if (!fs.existsSync(`${full}/${course_name}`)) {
+                    fs.mkdir(`${full}/${course_name}`, { recursive: true }, (error) => {
+                        if (error) {
+                            console.error(error);
+                            res.json({ message: "Error occurred", error: error.message });
+                        } else {
+                            // Directory created successfully
+                            const subFolders = ['exam', 'summary', 'lecture'];
+                            for (const subFolder of subFolders) {
+                                const subFolderPath = `${full}\\${course_name}\\${subFolder}`
+                                fs.mkdirSync(subFolderPath);
+                                console.log(subFolderPath);
+                            }
+
+
+                            connectDB.execute(`INSERT INTO course(course_name, course_description,course_type) VALUES ("${course_name}","${course_description}",${course_type})`, (error, data) => {
+                                if (data.length > 0) {
+                                    res.json({ message: "courses already exists" });
+                                } else {
+
+                                    res.json({ message: "Course added successfully" });
+                                }
+
+                            });
                         }
-                    }
-                    res.json({ message: "add course successfuly", d: data })
-                });
+                    });
+                }
+
+
             }
         });
 

@@ -141,7 +141,7 @@ export default function MainPage() {
 
             <div className="d-flex justify-content-center  row mt-3">
 
-                <div className="text-center "><h5>Let's work together to make this course a collaborative and rewarding experience for all of us. </h5>  <p>Add your matetial : <Link to='/submission' class="btn bg-custom text-white">Submission</Link></p> </div>
+                <div className="text-center "><h5>Let's work together to make this course a collaborative and rewarding experience for all of us. </h5>  <p>Add your matetials : <Link to='/submission' class="btn bg-custom text-white">Submit</Link></p> </div>
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     {
                         courses.map((course, index) => {
@@ -150,7 +150,7 @@ export default function MainPage() {
                                     <div class="card" >
                                         <div class="card-body">
                                             <button className="bg-transparent border-0 w-100" onClick={() => handleCourseClick(course.course_id , course.course_name)}>
-                                                <h5 class="card-title mb-3">Course Name : {course.course_name}</h5>
+                                                <h5 class="card-title mb-3">{course.course_name}</h5>
 
                                                 <p class="card-text">{course.course_description}</p>
 

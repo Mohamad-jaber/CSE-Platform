@@ -9,9 +9,9 @@ const Home = () => {
       <div className={" d-flex flex-wrap " + styles.home_div }>
         <div className=" col-lg-8  justify-content-center ">
         <h4 className={ styles.mainH }>
-          Welcome to CSE platform
+          Welcome to CSE Platform
         </h4>
-        <p className={styles.mainH_p}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium eum deserunt quas vero blanditiis aut ducimus aliquam voluptate, mollitia quidem!</p>
+        <h5 className={styles.mainH_p}>Welcome to our platform, where knowledge meets convenience! </h5>
         </div>
         <div className={"col-lg-2   d-flex justify-content-center  flex-column "+ styles.buttons}>
           <Link
@@ -24,7 +24,7 @@ const Home = () => {
             to="/allcourses"
             className={"btn btn-default-outline " + styles.mainBtn}
           >
-            <i class="fa-solid fa-book"></i> All cource
+            <i class="fa-solid fa-book"></i> All Courses
           </Link>
         </div>
       </div>

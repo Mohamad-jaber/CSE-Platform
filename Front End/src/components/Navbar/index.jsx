@@ -55,9 +55,9 @@ const Navbar = () => {
                 
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/mylist">
-                  My List
-                </Link>
+              {loggedUser.role == 0 ? <Link className="nav-link" to="/mylist">
+                  My list
+                </Link> : ''}
               </li>
               <li className="nav-item">
                 <Link onClick={logOut} className="nav-link" to="/">

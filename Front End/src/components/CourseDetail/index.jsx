@@ -35,7 +35,7 @@ const CourseDetail = ({ match }) => {
                         <Link onClick={() => set(0)} to={`/course/${courseId}/detail`}> <i class={`fa-solid fa-folder ` + styles.folder} ></i> </Link>
                     </h1>
                     {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
-                    <p>Exam</p>
+                    <p>Exams</p>
                 </div>
             
 
@@ -45,7 +45,7 @@ const CourseDetail = ({ match }) => {
                         <Link onClick={() => set(1)} to={`/course/${courseId}/detail`}> <i class={`fa-solid fa-folder ` + styles.folder} ></i> </Link>
                     </h1>
                     {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
-                    <p>Summary</p>
+                    <p>Summaries</p>
                 </div>
             
 
@@ -55,7 +55,7 @@ const CourseDetail = ({ match }) => {
                         <Link onClick={() => set(2)} to={`/course/${courseId}/detail`}> <i class={`fa-solid fa-folder ` + styles.folder} ></i> </Link>
                     </h1>
                     {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
-                    <p>Lecture</p>
+                    <p>Lectures</p>
                 </div>
             
         </div>

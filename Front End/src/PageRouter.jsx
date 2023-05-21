@@ -44,6 +44,8 @@ const PageRouter = () => {
             <Route path="/allcourses" element={<AllCourses showMessage={true}  />}/>
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
+            <Route path="/submission" element={<Submission />} /> 
+
             <Route path="/verifyEmail" element={<VerifyEmail />} />
             <Route path="/SentCode" element={<SentCode />} />
             <Route path="/ForgetPassword" element={<ResetPassword />} />

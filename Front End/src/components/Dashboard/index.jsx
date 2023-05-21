@@ -136,7 +136,7 @@ function Dashboard() {
         item.submission_status == filter
     ).slice(startIndex, endIndex).map((sub, index) => (
         <tr key={index}>
-            <th scope="row">{sub.submission_id}</th>
+            {/* <th scope="row">{sub.submission_id}</th> */}
             <td>{sub.user_name}</td>
             <td><button type="button" class="btn btn-success me-1" onClick={() => handleDownload(sub.submission_id)}>Download files</button></td>
             <td>{sub.submission_description}</td>
@@ -175,18 +175,18 @@ function Dashboard() {
         <React.Fragment>
             <div>
                 <div className="container text-center py-5 my-5 text-center">
-                    <div class="input-group mb-3 w-50">
+                    {/* <div class="input-group mb-3 w-50">
                         <label class="input-group-text w-50" >Choose Status</label>
                         <select class="form-select  w-50" aria-label="Default select example" onChange={(event) => { handleFilter(event) }}>
                             <option selected value={1}>Pending</option>
                             <option value={0}>Rejected</option>
                             <option value={2}>Accepted</option>
                         </select>
-                    </div>
+                    </div> */}
                     <table class="table table-bordered border-dark border-1">
                         <thead>
                             <tr>
-                                <th scope="col">submission_id</th>
+                                {/* <th scope="col">submission_id</th> */}
                                 <th scope="col">User Name</th>
                                 <th scope="col">files</th>
                                 <th scope="col">submission_description</th>
